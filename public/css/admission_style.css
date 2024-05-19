@@ -321,7 +321,12 @@ background: var(--btn-hvr);
   background: var(--primary);
   }
 
-
+.fa-tooth {
+  color: white;
+}
+.fa-user-xmark {
+  padding-left: 20px;
+}
 
 /* Media query for responsive */
 
@@ -367,3 +372,4 @@ background: var(--btn-hvr);
     overflow: hidden;
   }
   
+}

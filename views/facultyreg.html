@@ -17,12 +17,12 @@
   <section class="header">
     <nav>
         <!-- <a href="index.html"></a> -->
-		<a href="index.html"><i class="fa-solid fa-tooth" style="font-size: 40px;"></i></a>
+		<a href="/"><i class="fa-solid fa-tooth" style="font-size: 40px;"></i></a>
         <div class="nav-links" id="navLinks">
           <span class="icon" onclick="hidemenu()">&#10005;</span>  
           <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="facultyreg.html">Admission</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/studentregister">Student Register</a></li>
                 <li><a href="index.html#course_call">Course</a></li>
                 <li><a href="fees_page.html">Fees</a></li>
                 <li><a href="Contact_page.html">Contact</a></li>
@@ -35,7 +35,7 @@
 		<div class="r_form_wrap">
 			
 			<div class="title">
-				<p>Registration form - Faculty <a href="index.html"><i class="fa-solid fa-user-xmark"></i></a></p>
+				<p>Registration form - Faculty <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
 			</div>
 			
 			<!-- Admission from -->
@@ -48,7 +48,7 @@
 					<div class="input_item">
 					  <i class="fa fa-caret-square-o-down" aria-hidden="true" id="icon"></i>
 					  <select id="facultyType" name="facultyType" class="input" onchange="toggleBanquetField()" required>
-						<option value="">Select Faculty Type</option>
+						<option value="" selected disabled hidden>Select Faculty Type</option>
 						<option value="ida">IDA</option>
 						<option value="non-ida">Non-IDA</option>
 					  </select>
@@ -61,7 +61,7 @@
 					<div class="input_item">
 					  <i class="fa fa-caret-square-o-down" aria-hidden="true" id="icon"></i>
 					  <select id="banquet" name="banquet" class="input">
-						<option value="">Select Banquet Option</option>
+						<option value="" selected disabled hidden>Select Banquet Option</option>
 						<option value="with-banquet">With Banquet</option>
 						<option value="without-banquet">Without Banquet</option>
 					  </select>
