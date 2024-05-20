@@ -35,19 +35,19 @@
 		<div class="r_form_wrap">
 			
 			<div class="title">
-				<p>Registration form - Faculty <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
+				<p>Registration form (Details) - Faculty <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
 			</div>
 			
 			<!-- Admission from -->
 			<div class="r_form">
-				<form method="POST" action="/facultyregister" id = 'registerform'>
+				<form id = 'registerform'>
 				  
 				  <!-- Faculty Type Dropdown -->
 				  <div class="input_wrap">
 					<label for="facultyType">What kind of faculty</label>
 					<div class="input_item">
 					  <i class="fa fa-caret-square-o-down" aria-hidden="true" id="icon"></i>
-					  <select id="facultyType" name="facultyType" class="input" onchange="toggleBanquetField()" required>
+					  <select id="facultyType" name="facultyType" class="input" required>
 						<option value="" selected disabled hidden>Select Faculty Type</option>
 						<option value="ida">IDA</option>
 						<option value="non-ida">Non-IDA</option>
@@ -56,7 +56,7 @@
 				  </div>
 			  
 				  <!-- Banquet Field (Hidden by Default) -->
-				  <div class="input_wrap" id="banquetField" style="display: none;">
+				  <div class="input_wrap" id="banquetField">
 					<label for="banquet">Banquet or not</label>
 					<div class="input_item">
 					  <i class="fa fa-caret-square-o-down" aria-hidden="true" id="icon"></i>
@@ -112,24 +112,24 @@
 					  <input type="text" name="ksdc" class="input" id="ksdc" placeholder="Enter your KSDC registration number" required>
 					</div>
 				  </div>
-				  <div class="input_wrap">
+				  <!-- <div class="input_wrap">
 					<label for="qrCode">Scan the below QR to make payment</label>
 					<div class="input_item">
 						<img src="/image/IAOR 1500RS..png" alt="QR Code for Payment" style="max-width: 100%;">
 					</div>
 				</div>
 		
-				<!-- UPI Transaction ID Field -->
+				 UPI Transaction ID Field 
 				<div class="input_wrap">
 					<label for="upiTransactionId">Enter the UPI ID</label>
 					<div class="input_item">
 						<i class="fa fa-id-card" id="icon"></i>
 						<input type="text" name="upiTransactionId" class="input" id="upiTransactionId" placeholder="Enter your UPI transaction ID" required>
 					</div>
-				</div>
+				</div> -->
 			  
-				  <input type="submit" class="button" value="Register Now">
-				  <input type="reset" class="clear_ad" value="Clear">
+				  <button type="button" class="button" onclick="storePart1Data()"> Proceed to Payment </button>
+				  <button type="reset" class="clear_ad"> Reset </button>
 				  
 				</form>
 			</div>

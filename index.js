@@ -276,8 +276,11 @@ app.post('/studentregister', async (req, res) => {
 });
 
 // Route to handle form submission for faculty registration
-app.post('/facultyregister', async (req, res) => {
+app.post('/facultyregister',  async (req, res) => {
+  console.log('hello')
+  console.log(req.body);
   const { facultyType, banquet, yourname, speciality, emailaddress, phone, ksdc, upiTransactionId } = req.body;
+  console.log(req.body);
 
   try {
     const nextUid = await getNextSequenceValue('facultyUid');
@@ -358,9 +361,15 @@ app.post('/facultyregister', async (req, res) => {
 app.get("/studentregister", (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'studentreg.html'));
 });
+app.get("/studentregisterpay", (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'studentreg2.html'));
+});
 
 app.get("/facultyregister", (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'facultyreg.html'));
+});
+app.get("/facultyregisterpay", (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'facultyreg2.html'));
 });
 
 // Serve the form HTML
