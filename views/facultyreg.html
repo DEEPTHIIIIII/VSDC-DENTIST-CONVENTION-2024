@@ -40,7 +40,7 @@
 			
 			<!-- Admission from -->
 			<div class="r_form">
-				<form method="POST" action="/facultyregister" >
+				<form method="POST" action="/facultyregister" id = 'registerform'>
 				  
 				  <!-- Faculty Type Dropdown -->
 				  <div class="input_wrap">
@@ -143,33 +143,8 @@
 	</body>
 	<!-- Javascript for this Web page -->
 	<script src=" https://smtpjs.com/v3/smtp.js"></script>
-	<script>
-		function sendmail(){
-		Email.send({}).then(
-	message => alert("Thanks for filling out our form!")
-);
-		}
-	</script>
-	<script>
-	var navLinks= document.getElementById("navLinks");
-
-function showmenu(){
-    navLinks.style.right="0";
-}   
-function hidemenu(){
-    navLinks.style.right="-200px";
-}
-
-function toggleBanquetField() {
-    var facultyType = document.getElementById("facultyType").value;
-    var banquetField = document.getElementById("banquetField");
-    if (facultyType === "non-ida") {
-      banquetField.style.display = "block";
-    } else {
-      banquetField.style.display = "none";
-    }
-  }
-				
+	<script src = 'javascript/main_script.js'></script>
+	<script src = 'javascript/registrationPage.js'></script>		
 			 
 </script>
 </html>
