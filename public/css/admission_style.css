@@ -327,6 +327,23 @@ background: var(--btn-hvr);
 .fa-user-xmark {
   padding-left: 20px;
 }
+.inline-group {
+  display: flex;
+  align-items: center;
+}
+.inline-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+#upiSection {
+  transition: max-height 1s ease, opacity 1s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+#upiSection.visible {
+  max-height: 200px; /* Adjust according to the content's height */
+  opacity: 1;
+}
 
 /* Media query for responsive */
 
@@ -373,3 +390,4 @@ background: var(--btn-hvr);
   }
   
 }
+

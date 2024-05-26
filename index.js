@@ -164,6 +164,7 @@ const studentSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   pursuing: { type: String, required: true },
   studentType: { type: String, required: true },
+  poster: { type: String},
   upiTransactionId: { type: String, required: true, unique: true },
   uid: { type: String, required: true, unique: true }
 });
@@ -197,7 +198,8 @@ async function getNextSequenceValue(sequenceName) {
 
 // Route to handle form submission for student registration
 app.post('/studentregister', async (req, res) => {
-  const { name, collegeName, email, phone, pursuing, studentType, upiTransactionId } = req.body;
+  console.log(req.body);
+  const { name, collegeName, email, phone, pursuing, studentType, poster, upiTransactionId } = req.body;
 
   try {
     const nextUid = await getNextSequenceValue('studentUid');
@@ -211,6 +213,7 @@ app.post('/studentregister', async (req, res) => {
       pursuing,
       studentType,
       upiTransactionId,
+      poster,
       uid: formattedUid
     });
 
@@ -277,10 +280,10 @@ app.post('/studentregister', async (req, res) => {
 
 // Route to handle form submission for faculty registration
 app.post('/facultyregister',  async (req, res) => {
-  console.log('hello')
+  //console.log('hello')
   console.log(req.body);
   const { facultyType, banquet, yourname, speciality, emailaddress, phone, ksdc, upiTransactionId } = req.body;
-  console.log(req.body);
+  
 
   try {
     const nextUid = await getNextSequenceValue('facultyUid');

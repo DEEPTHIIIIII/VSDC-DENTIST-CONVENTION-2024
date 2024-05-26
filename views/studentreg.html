@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script src="../index.js"></script>
-  <script src = 'javascript/main_script.js'></script>
+
 	
 </head>
 <body>
@@ -37,10 +36,10 @@
         <div class="r_form_wrap">
 			
 			<div class="title">
-				<p>Registration form - Student <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
+				<p>Registration form (Details) - Student <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
 			</div>
 		<div class="r_form">
-            <form method="POST" action="/studentregister" id = "registerform">
+            <form id = "registerform">
               
               <!-- Name Field -->
               <div class="input_wrap">
@@ -113,24 +112,10 @@
                 </div>
               </div>
 
-              <div class="input_wrap">
-                <label for="qrCode">Scan the below QR to make payment</label>
-                <div class="input_item">
-                    <img src="/image/IAOR 1500RS..png" alt="QR Code for Payment" style="max-width: 100%;">
-                </div>
-            </div>
-    
-            <!-- UPI Transaction ID Field -->
-            <div class="input_wrap">
-                <label for="upiTransactionId">Enter the UPI ID</label>
-                <div class="input_item">
-                    <i class="fa fa-id-card" id="icon"></i>
-                    <input type="text" name="upiTransactionId" class="input" id="upiTransactionId" placeholder="Enter your UPI transaction ID" required>
-                </div>
-            </div>
+              
 
-              <input type="submit" class="button" value="Register Now">
-              <input type="reset" class="clear_ad" value="Clear">
+              <button type="button" class="button" onclick="storePart1Data()"> Proceed to Payment </button>
+				      <button type="reset" class="clear_ad"> Reset </button>
           
             </form>
           </div>

@@ -62,39 +62,75 @@ function storePart1Data(){
 
     const form = document.getElementById('registerform');
     validatePhone();
-    if(form.checkValidity() ) {
-        const facultyType = document.getElementById('facultyType').value;
-    const banquet = document.getElementById('banquet').value;
-    const name = document.getElementById('yourname').value;
-    const speciality = document.getElementById('speciality').value;
-    const email = document.getElementById('emailaddress').value;
-    const phone = document.getElementById('phone').value;
-    const ksdc = document.getElementById('ksdc').value;
 
-    //Store in Session Storage
-
-    sessionStorage.setItem('facultyType', facultyType);
-    sessionStorage.setItem('banquet', banquet);
-    sessionStorage.setItem('name', name);
-    sessionStorage.setItem('speciality', speciality);
-    sessionStorage.setItem('email', email);
-    sessionStorage.setItem('phone', phone);
-    sessionStorage.setItem('ksdc', ksdc);
-
-    //Redirect to paymnet page
-
-    window.location.href = '/facultyregisterpay';
+    if(window.location.pathname.endsWith('facultyregister')){
+        if(form.checkValidity() ) {
+            const facultyType = document.getElementById('facultyType').value;
+        const banquet = document.getElementById('banquet').value;
+        const name = document.getElementById('yourname').value;
+        const speciality = document.getElementById('speciality').value;
+        const email = document.getElementById('emailaddress').value;
+        const phone = document.getElementById('phone').value;
+        const ksdc = document.getElementById('ksdc').value;
+    
+        //Store in Session Storage
+    
+        sessionStorage.setItem('facultyType', facultyType);
+        sessionStorage.setItem('banquet', banquet);
+        sessionStorage.setItem('name', name);
+        sessionStorage.setItem('speciality', speciality);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('phone', phone);
+        sessionStorage.setItem('ksdc', ksdc);
+    
+        //Redirect to paymnet page
+    
+        window.location.href = '/facultyregisterpay';
+        }
+        else {
+            form.reportValidity();
+        }
     }
-    else {
-        form.reportValidity();
+    else if(window.location.pathname.endsWith('studentregister')){
+
+        if(form.checkValidity() ) {
+            
+        const name = document.getElementById('name').value;
+        const collegeName = document.getElementById('collegeName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const pursuing = document.getElementById('pursuing').value;
+        const studentType = document.getElementById('studentType').value;
+        const poster = studentType == 'poster'? document.getElementById('poster').value: 'no poster';
+        //Store in Session Storage
+    
+        sessionStorage.setItem('studentType', studentType);
+        sessionStorage.setItem('poster', poster);
+        sessionStorage.setItem('name', name);
+        sessionStorage.setItem('collegeName', collegeName);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('phone', phone);
+        sessionStorage.setItem('pursuing', pursuing);
+    
+        //Redirect to payment page
+            console.log('proceed')
+        window.location.href = '/studentregisterpay';
+        }
+        else {
+            form.reportValidity();
+        }
+
     }
+    
+    
     
 }
 
+//For Faculty Registration Page 2
 document.addEventListener('DOMContentLoaded', function() {
     // If on Page 2, populate form fields with data from session storage
     if (window.location.pathname.endsWith('facultyregisterpay')) {
-        //console.log('hello');
+        
         const form = document.getElementById('registerform');
         const facultyType = sessionStorage.getItem('facultyType');
         const banquet = sessionStorage.getItem('banquet');
@@ -103,11 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = sessionStorage.getItem('email');
         const phone = sessionStorage.getItem('phone');
         const ksdc = sessionStorage.getItem('ksdc');
-        console.log(facultyType, name, speciality, email);
+        
 
         if (facultyType && banquet && name && speciality && email && phone && ksdc) {
 
-            console.log(facultyType, name, speciality, email);
+            
             // Optionally, you could add hidden fields to submit these values along with the second part of the form
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="facultyType" value="${facultyType}">`);
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="banquet" value="${banquet}">`);
@@ -118,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="ksdc" value="${ksdc}">`);
         }
 
-        console.log(document.getElementsByName('facultyType')[0].value);
+        
 
         // form.addEventListener('submit', function(event) {
         //     // Combine all the form data and submit it here if needed
@@ -126,3 +162,53 @@ document.addEventListener('DOMContentLoaded', function() {
         // });
     }
 });
+
+//For Student Registration Page 2
+document.addEventListener('DOMContentLoaded', function() {
+    // If on Page 2, populate form fields with data from session storage
+    if (window.location.pathname.endsWith('studentregisterpay')) {
+        
+        const form = document.getElementById('registerform');
+        const studentType = sessionStorage.getItem('studentType');
+        const poster = sessionStorage.getItem('poster');
+        const name = sessionStorage.getItem('name');
+        const collegeName = sessionStorage.getItem('collegeName');
+        const email = sessionStorage.getItem('email');
+        const phone = sessionStorage.getItem('phone');
+        const pursuing = sessionStorage.getItem('pursuing');
+        
+
+        if (name && collegeName && email && phone && pursuing && studentType && poster) {
+            
+            
+            // Optionally, you could add hidden fields to submit these values along with the second part of the form
+            
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="name" value="${name}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="collegeName" value="${collegeName}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="email" value="${email}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="phone" value="${phone}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="pursuing" value="${pursuing}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="studentType" value="${studentType}">`);
+            form.insertAdjacentHTML('beforeend', `<input type="hidden" name="poster" value="${poster}">`);
+        }
+
+        
+
+        // form.addEventListener('submit', function(event) {
+        //     // Combine all the form data and submit it here if needed
+        //     // For example, you could use the fetch API to send the data to the server via AJAX
+        // });
+    }
+});
+
+//UPI Transaction ID Toggle
+document.getElementById('paymentComplete').addEventListener('change', function() {
+    var upiSection = document.getElementById('upiSection');
+    if (this.checked) {
+        upiSection.classList.add('visible');
+      //upiSection.style.display = 'block';
+    } else {
+        upiSection.classList.remove('visible');
+      //upiSection.style.display = 'none';
+    }
+  });
