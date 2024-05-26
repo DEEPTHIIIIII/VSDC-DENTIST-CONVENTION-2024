@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration form- VSDC</title>
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/admission_style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  
+	
+</head>
+<body>
+
+  <section class="header">
+    <nav>
+        <!-- <a href="index.html"></a> -->
+		<a href="/"><i class="fa-solid fa-tooth" style="font-size: 40px;"></i></a>
+        <div class="nav-links" id="navLinks">
+          <span class="icon" onclick="hidemenu()">&#10005;</span>  
+          <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/facultyregister">Faculty Registration</a></li>
+                <li><a href="index.html#course_call">Course</a></li>
+                <li><a href="fees_page.html">Fees</a></li>
+                <li><a href="Contact_page.html">Contact</a></li>
+            </ul>
+        </div> 
+        <span class="icon" onclick="showmenu()">&#9776;</span>
+    </nav>
+
+	<div class="wrapper">
+        <div class="r_form_wrap">
+			
+			<div class="title">
+				<p>Registration form (Payment) - Student <a href="/"><i class="fa-solid fa-user-xmark"></i></a></p>
+			</div>
+		<div class="r_form">
+            <form method="POST" action="/studentregister" id = "registerform">
+              
+              
+
+              <div class="input_wrap">
+                <label for="qrCode">Scan the below QR to make payment</label>
+                <div class="input_item">
+                    <img src="/image/IAOR 1500RS..png" alt="QR Code for Payment" style="max-width: 100%;">
+                </div>
+            </div>
+    
+            <!-- Payment Complete Checkbox -->
+            <div class="input_wrap inline-group">
+              <input type="checkbox" id="paymentComplete">
+              <label for="paymentComplete">Payment Complete</label>
+            </div>
+
+            <!-- UPI Transaction ID Field -->
+            <div class="input_wrap" id="upiSection">
+                <label for="upiTransactionId">Enter the UPI ID</label>
+                <div class="input_item">
+                    <i class="fa fa-id-card" id="icon"></i>
+                    <input type="text" name="upiTransactionId" class="input" id="upiTransactionId" placeholder="Enter your UPI transaction ID" required>
+                </div>
+            </div>
+
+            <button type="submit" class="button" > Register Now </button>
+            <button type="reset" class="clear_ad" > Clear </button>
+          
+            </form>
+          </div>
+          
+          
+          
+	</div>
+	</section>
+	<div class="none_div">
+
+	</div>
+	</body>
+
+  
+	<!-- Javascript for this Web page -->
+	<script src=" https://smtpjs.com/v3/smtp.js"></script>
+  <script src = 'javascript/main_script.js'></script>
+	<script src = 'javascript/registrationPage.js'></script>
+</html>
