@@ -109,7 +109,7 @@ nav img{
 }
 .text-box p{
     margin: 10px 0 40px;
-    font-size: 14px;
+    font-size: 20px;
     color: #fff;
     
 }
@@ -135,6 +135,248 @@ nav img{
 .icon{
     display:none;
 }
+
+
+/*addition to the header page*/
+/* .popup {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup.date {
+    top: 120px;
+    left: 40px;
+}
+
+.popup.venue {
+    top: 200px;
+    right: 40px;
+}
+
+.slider {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slider span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+} */
+/* Register for mobile */
+/* Default: Hide buttons */
+/* Default: Hide buttons */
+.mobile-buttons {
+    display: none;
+}
+
+/* Show buttons only on mobile devices */
+@media (max-width: 700px) {
+    .mobile-buttons {
+        display: block;
+        text-align: center; /* Center align buttons */
+    }
+
+    .mobile-buttons .hero-btn {
+        display: inline-block;
+        margin: 10px 5px; /* Add some spacing between buttons */
+        padding: 10px 20px;
+        background-color:#FFC100;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        animation: popupAnimation 3s infinite;
+    }
+    @keyframes popupAnimation {
+        0%, 100% {
+            transform: scale(1);
+            border-radius: 10%;
+        }
+        50% {
+            transform: scale(1.05);
+            border-radius: 10%;
+        }
+    }
+    .mobile-buttons .hero-btn:hover {
+        transform: scale(1.1); /* Shrink and grow effect */
+    }
+}
+
+/* end of register for mobile */
+
+/* Popup styles --no longer used here
+.popup {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 90%;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-weight: bold;
+    animation: popupAnimation 3s infinite;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup.date {
+    top: 190px;
+    left:100px;
+}
+
+
+
+@keyframes popupAnimation {
+    0%, 100% {
+        transform: scale(1);
+        border-radius: 60%;
+    }
+    50% {
+        transform: scale(1.1);
+        border-radius: 60%;
+    }
+} */
+/* Schedule styles */
+
+
+/* Annaji center pic */
+/* Centered content class for all devices */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center; /* Center text */
+    margin: 0 auto; /* Center the entire column */
+    padding: 20px;
+}
+
+.centered-content img {
+    height: 350px;
+    width: 350px;
+    object-fit: cover; /* Ensure the image fits well */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 700px) {
+    .centered-content img {
+        height: 250px;
+        width: 250px; /* Adjust size for smaller screens */
+    }
+}
+/* End of style center */
+/* Conference Schedule Styles */
+.conference-schedule {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.conference-schedule h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #333;
+}
+
+.schedule-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.schedule-row {
+    width: 90%; /* Decreased width */
+    max-width: 600px; /* Adjusted max-width */
+    margin: 5px 0; /* Reduced spacing between rows */
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.schedule-row:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-item {
+    padding: 15px; /* Reduced padding */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+}
+
+@media (max-width: 700px) {
+    .conference-schedule {
+        padding: 20px 10px;
+    }
+
+    .conference-schedule h1 {
+        font-size: 24px;
+    }
+
+    .schedule-item {
+        font-size: 16px;
+        padding: 10px; /* Reduced padding for mobile */
+    }
+}
+
+/* End of schedule styles */
+/* Slider styles */
+.slider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0.9;
+}
+
+.slider span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: slide 12s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*End of addition */
 
 /* Course */
 
@@ -247,6 +489,7 @@ h3{
     border-radius: 10px;
     margin-bottom: 5%;
     text-align: left;
+    
 }
 .facilities-col img{
     width: 100%;
@@ -315,7 +558,7 @@ h3{
 } 
 
 /* Media query for responsive */
-
+/* 
 @media (max-width: 700px) {
 
     *{
@@ -361,7 +604,7 @@ h3{
 
     /*Course in Media query*/
    
-    .course-col{
+   /* .course-col{
         margin: 10px 10px;
     }
     .row{
@@ -370,15 +613,97 @@ h3{
     .course-col:hover{
         box-shadow: 3px 3px 0.5px 0.5px rgba(0, 0, 0, 0.486);
     }
-        /* Facilities */
+  
     .facilities-col img:hover{
         box-shadow:none;
     }
 
-    /* Call To Action in Media query*/
+
     .ctn h1{
         font-size: 24px;
     }
+} */
+
+
+/*updated*/
+@media (max-width: 700px) {
+    * {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    #logo-img {
+        padding: 10px;
+    }
+
+    .text-box h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .text-box p {
+        font-size: 12px;
+    }
+
+    .nav-links ul li {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0%;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+
+    .icon {
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    .nav-links ul {
+        padding: 30px;
+    }
+
+    .course-col {
+        margin: 10px 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .course-col:hover {
+        box-shadow: 3px 3px 0.5px 0.5px rgba(0, 0, 0, 0.486);
+    }
+
+    .facilities-col img:hover {
+        box-shadow: none;
+    }
+
+    .ctn h1 {
+        font-size: 24px;
+    }
+
+    .popup {
+        width: 120px;
+        height: 120px;
+    }
+
+    .slider {
+        padding: 5px;
+        font-size: 12px;
+    }
 }
+/*end of updated*/
 
 /* Media query is Close*/
