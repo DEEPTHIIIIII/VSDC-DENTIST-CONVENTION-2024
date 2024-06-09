@@ -300,6 +300,71 @@ nav img{
 /* Schedule styles */
 
 
+/* after party  */
+/* After Banquet Party Section */
+.after-banquet {
+    padding: 50px 20px;
+    background-color: #f7f7f7;
+}
+
+.after-banquet-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.after-banquet-text {
+    flex: 1;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.after-banquet-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.after-banquet-text p {
+    line-height: 1.6;
+}
+
+.after-banquet-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.after-banquet-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.after-banquet-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+/* Mobile Responsive */
+@media (max-width: 700px) {
+    .after-banquet-content {
+        flex-direction: column;
+    }
+
+    .after-banquet-text {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .after-banquet-img {
+        padding: 10px;
+    }
+}
+/* End of after party */
+
 /* Annaji center pic */
 /* Centered content class for all devices */
 .centered-content {

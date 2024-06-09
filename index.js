@@ -129,6 +129,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const app = express();
+const multer = require('multer');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -186,6 +187,21 @@ const facultySchema = new mongoose.Schema({
 
 const Faculty = mongoose.model('Faculty', facultySchema);
 
+
+// Student with poster
+// const studentWithPosterSchema = new mongoose.Schema({
+//   name: String,
+//   collegeName: String,
+//   email: String,
+//   phone: String,
+//   pursuing: String,
+//   poster: String // Store the poster file path
+// });
+
+// const StudentWithPoster = mongoose.model('StudentWithPoster', studentWithPosterSchema);
+// End of student with poster
+
+
 // Function to get next sequence value
 async function getNextSequenceValue(sequenceName) {
   const sequenceDocument = await Counter.findOneAndUpdate(
@@ -195,6 +211,19 @@ async function getNextSequenceValue(sequenceName) {
   );
   return sequenceDocument.sequenceValue;
 }
+
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//       cb(null, 'uploads/posters'); // Ensure this directory exists
+//   },
+//   filename: function (req, file, cb) {
+//       cb(null, Date.now() + path.extname(file.originalname)); // Append extension
+//   }
+// });
+
+// const upload = multer({ storage: storage });
+
 
 // Route to handle form submission for student registration
 app.post('/studentregister', async (req, res) => {
@@ -278,6 +307,8 @@ app.post('/studentregister', async (req, res) => {
   }
 });
 
+
+
 // Route to handle form submission for faculty registration
 app.post('/facultyregister',  async (req, res) => {
   //console.log('hello')
@@ -307,19 +338,20 @@ app.post('/facultyregister',  async (req, res) => {
       from: process.env.USER,
       to: emailaddress,
       subject: 'Registration Confirmation',
-      text:`<p>We are pleased to confirm your registration for the Dentist Convention 2024, themed "Advancements in Dental Science," 
-      which will be hosted by VS Dental College on April 5th and 6th, 2024.</p>
+      text:`We are pleased to confirm your registration for the Dentist Convention 2024, themed "Advancements in Dental Science," 
+      which will be hosted by VS Dental College on April 5th and 6th, 2024.
       
-      <p>Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of dental science. 
-      We are confident that the sessions and discussions lined up will provide valuable insights and networking opportunities.</p>
+      Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of dental science. 
+      We are confident that the sessions and discussions lined up will provide valuable insights and networking opportunities.
       
-      <p>Your unique ID for the convention is <strong>${formattedUid}</strong>. Please keep this ID handy for any future reference or communication related to the event.</p>
+      Your unique ID for the convention is ${formattedUid}. Please keep this ID handy for any future reference or communication related to the event.
       
-      <p>Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
+      Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
       You can reach out to Dr. Jahnavi M.S at 9448112800.
-      We are here to ensure that your experience at the convention is seamless and rewarding.</p>
+      Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/GfLAGHVcBG62F5qMjPXFDT
+      We are here to ensure that your experience at the convention is seamless and rewarding.
       
-      <p>We eagerly anticipate your presence and active participation at the Dentist Convention 2024.</p>
+      We eagerly anticipate your presence and active participation at the Dentist Convention 2024.
     `
     };
 

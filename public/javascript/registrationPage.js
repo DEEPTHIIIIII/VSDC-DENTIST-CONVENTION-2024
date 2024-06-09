@@ -63,7 +63,7 @@ function storePart1Data(){
     const form = document.getElementById('registerform');
     validatePhone();
 
-    if(window.location.pathname.endsWith('facultyregister')){
+    if(window.location.pathname.endsWith('facultyregisterdetails')){
         if(form.checkValidity() ) {
             const facultyType = document.getElementById('facultyType').value;
         const banquet = document.getElementById('banquet').value;
@@ -91,7 +91,7 @@ function storePart1Data(){
             form.reportValidity();
         }
     }
-    else if(window.location.pathname.endsWith('studentregister')){
+    else if(window.location.pathname.endsWith('studentregisterdetails')){
 
         if(form.checkValidity() ) {
             
