@@ -11,25 +11,31 @@
 <body>
     <section class="header">
         <nav>
-            <a href="index.html"><i class="fa-solid fa-tooth" style="font-size: 40px;"></i></a>
+            <a href="/"><img src = 'image/VSDC-Logo.png' class = 'logo'></img></a>
             <div class="nav-links" id="navLinks">
                 <span class="icon" onclick="hidemenu()">&#10005;</span>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    
                     <li><a href="/facultyregister">Faculty Register</a></li>
                     <li><a href="/studentregister">Student Register</a></li>
                     <li><a href="#course_call">Course</a></li>
                     <li><a href="fees_page.html">Fees</a></li>
                     <li><a href="Contact_page.html">Contact</a></li>
                 </ul>
+               
             </div> 
+            <div class="mobile-buttons">
+                <a href="/studentregister" class = 'reglink'>Students</a>
+                <a href="/facultyregister" class = 'reglink'>Faculty</a>
+            </div>
             <span class="icon" onclick="showmenu()">&#9776;</span>
         </nav>
-        <div class="mobile-buttons">
-            <a href="/studentregister" class="hero-btn">Student Registration</a>
-            <a href="/facultyregister" class="hero-btn">Faculty Registration</a>
-        </div>
         
+        <div class="logo-box" style="top:90px">
+            <img class = 'logo' src = 'image/IDA-Logo.png' alt = 'IDA-Logo'/>
+            <img class = 'logo' src = 'image/KSDC-Logo.png' alt = 'KSDC-Logo'/>
+            
+        </div>
         <div class="text-box" style="top:90px">
             <h1>Dentist Convention 2024</h1>
             <p style="font-weight: bold;font-size: 16px;">Empowering Minds, Shaping Futures<br/><br/><i class="fa-solid fa-location-dot" style="font-size: 12px;"></i> Kuvempu Kalashetra<br>
@@ -37,6 +43,10 @@
                 <!-- <div class="popup date">
                     Date: 20th Saturday, July 2024
                 </div> -->
+        </div>
+
+        <div class="slider">
+            <span>For More info, Contact: +91 97312 55177 | 90080 00166</span>
         </div>
     </section>
     <section class="facilities">
@@ -238,9 +248,7 @@
             the college is dedicated to excellence in dental care and innovation.</p>
     </section>
 
-    <div class="slider">
-        <span>For More info, Contact: +91 97312 55177 | 90080 00166</span>
-    </div>
+    
 
     <script src="javascript/main_script.js"></script>
 </body>
