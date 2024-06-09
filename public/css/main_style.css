@@ -340,6 +340,8 @@ nav img{
     color: #333;
 }
 
+
+
 .schedule-table {
     display: flex;
     flex-direction: column;
@@ -426,29 +428,94 @@ nav img{
 /* Course */
 
  .course{
-    width: 80%;
+    width: 100%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    
+    background-color: #f7f7f7;
+    padding: 30px 0;
 }
+
+
 h1{
     font-size: 36px;
     font-weight: 300;
 }
+.course h1 {
+    
+    width: 80%;
+    margin: 0 auto; /* Ensure it's centered */
+    text-align: center;
+
+}
+
+.guidelines {
+    padding: 50px 15%;
+    text-align: justify;
+    background-color: #ffffff;
+    
+}
+
+.guidelines h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+.guidelines h2 {
+    margin-bottom: 10px;
+    
+    color: #333;
+    text-align: center;
+}
+
+.guidelines ul {
+    list-style-type: disc ;
+    margin-left: 20px; /* Indentation for the first set of lists */
+    color:#777;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+.guidelines ul ul {
+    list-style-type: circle;
+    margin-left: 20px; /* Additional indentation for the inner set of lists */
+    color:#6d6c6c;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 22px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    .guidelines {
+        padding: 50px 10%;
+    }
+
+    .guidelines ul {
+        list-style-type: disc ;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+}
 p{
     color:#777;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
 }
 .row{
-    margin-top: 5%;
+    margin-top: 2%;
+    max-width: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 0 30px;
 }
 .course-col{
     flex-basis: 31%;
+    max-width: 80%;
     background: #fff3f3;
     border-radius: 10px;
     margin-bottom:5%;
@@ -718,13 +785,22 @@ h3{
     .nav-links ul {
         padding: 30px;
     }
-
+    .course {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+    
     .course-col {
         margin: 10px 10px;
+        width: 400px;
     }
 
     .row {
         flex-direction: column;
+        justify-content: center;
+    align-items: center;
     }
 
     .course-col:hover {
