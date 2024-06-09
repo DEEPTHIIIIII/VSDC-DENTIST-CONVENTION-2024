@@ -45,8 +45,9 @@
 
               <div class="input_wrap">
                 <label for="qrCode">Scan the below QR to make payment</label>
+                <p id = 'qr-code-desc'></p>
                 <div class="input_item">
-                    <img src="/image/IAOR 1500RS..png" alt="QR Code for Payment" style="max-width: 100%;">
+                    <img id = 'qr-code-payment' src="" alt="QR Code for Payment" style="max-width: 100%;">
                 </div>
             </div>
     
@@ -58,10 +59,10 @@
 
             <!-- UPI Transaction ID Field -->
             <div class="input_wrap" id="upiSection">
-                <label for="upiTransactionId">Enter the UPI ID</label>
+                <label for="upiTransactionId">Enter the Transaction ID</label>
                 <div class="input_item">
                     <i class="fa fa-id-card" id="icon"></i>
-                    <input type="text" name="upiTransactionId" class="input" id="upiTransactionId" placeholder="Enter your UPI transaction ID" required>
+                    <input type="text" name="upiTransactionId" class="input" id="upiTransactionId" placeholder="Enter your UPI Transaction No." required>
                 </div>
             </div>
 
