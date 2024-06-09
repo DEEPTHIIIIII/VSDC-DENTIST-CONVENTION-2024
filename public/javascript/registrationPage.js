@@ -126,6 +126,27 @@ function storePart1Data(){
     
 }
 
+function updateQrCode(f_flag, facultyType, banquet) {
+    let qrCodeImg = ''
+    switch(f_flag) {
+        case 0: qrCodeImg = 'Students Scientific + Poster.png'
+                break;
+        case 1: 
+            if(facultyType === 'ida' && banquet === 'with-banquet') {
+                qrCodeImg = 'IDA + Banquet.png'
+            }
+            else if(facultyType === 'ida' && banquet === 'without-banquet') {
+                qrCodeImg = 'IDA + Scientific.png'
+            }
+            else if(facultyType === 'non-ida' && banquet === 'with-banquet'){
+                qrCodeImg = 'Non IDA + Banquet.png'
+            }
+            else {
+                qrCodeImg = 'Non IDA + Scientific.png'
+            }
+    }
+    return qrCodeImg;
+}
 //For Faculty Registration Page 2
 document.addEventListener('DOMContentLoaded', function() {
     // If on Page 2, populate form fields with data from session storage
@@ -140,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const phone = sessionStorage.getItem('phone');
         const ksdc = sessionStorage.getItem('ksdc');
         
-
+        const qrCodeImg = updateQrCode(1, facultyType, banquet);
+        const qrCodeSrc = '/image/qrcode/' + qrCodeImg
         if (facultyType && banquet && name && speciality && email && phone && ksdc) {
 
             
@@ -152,14 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="emailaddress" value="${email}">`);
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="phone" value="${phone}">`);
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="ksdc" value="${ksdc}">`);
+
+            document.getElementById('qr-code-payment').src = qrCodeSrc;
+            document.getElementById('qr-code-desc').textContent = qrCodeImg.split('.')[0];
         }
 
         
-
-        // form.addEventListener('submit', function(event) {
-        //     // Combine all the form data and submit it here if needed
-        //     // For example, you could use the fetch API to send the data to the server via AJAX
-        // });
     }
 });
 
@@ -168,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // If on Page 2, populate form fields with data from session storage
     if (window.location.pathname.endsWith('studentregisterpay')) {
         
+
         const form = document.getElementById('registerform');
         const studentType = sessionStorage.getItem('studentType');
         const poster = sessionStorage.getItem('poster');
@@ -177,7 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const phone = sessionStorage.getItem('phone');
         const pursuing = sessionStorage.getItem('pursuing');
         
-
+        const qrCodeImg = updateQrCode(0, '', '');
+        const qrCodeSrc = '/image/qrcode/' + qrCodeImg;
         if (name && collegeName && email && phone && pursuing && studentType && poster) {
             
             
@@ -190,14 +212,12 @@ document.addEventListener('DOMContentLoaded', function() {
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="pursuing" value="${pursuing}">`);
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="studentType" value="${studentType}">`);
             form.insertAdjacentHTML('beforeend', `<input type="hidden" name="poster" value="${poster}">`);
+
+            document.getElementById('qr-code-payment').src = qrCodeSrc;
+            document.getElementById('qr-code-desc').textContent = qrCodeImg.split('.')[0];
         }
 
         
-
-        // form.addEventListener('submit', function(event) {
-        //     // Combine all the form data and submit it here if needed
-        //     // For example, you could use the fetch API to send the data to the server via AJAX
-        // });
     }
 });
 

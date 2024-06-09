@@ -362,6 +362,9 @@ app.post('/facultyregister',  async (req, res) => {
 });
 
 app.get("/studentregister", (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'studentreg0.html'));
+});
+app.get("/studentregisterdetails", (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'studentreg.html'));
 });
 app.get("/studentregisterpay", (req, res) => {
@@ -369,6 +372,9 @@ app.get("/studentregisterpay", (req, res) => {
 });
 
 app.get("/facultyregister", (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'facultyreg0.html'));
+});
+app.get("/facultyregisterdetails", (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'facultyreg.html'));
 });
 app.get("/facultyregisterpay", (req, res) => {
