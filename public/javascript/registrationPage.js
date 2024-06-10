@@ -89,7 +89,7 @@ function storePart1Data(){
         const phone = document.getElementById('phone').value;
         const pursuing = document.getElementById('pursuing').value;
         const studentType = document.getElementById('studentType').value;
-        const poster = studentType == 'poster'? document.getElementById('poster').value: 'no poster';
+        const poster = studentType == 'poster'? 'poster': 'no poster';
         //Store in Session Storage
     
         sessionStorage.setItem('studentType', studentType);
