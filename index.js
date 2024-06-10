@@ -1,126 +1,3 @@
-// require('dotenv').config();
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const path = require('path');
-// const mongoose = require('mongoose');
-// const app = express();
-// const nodemailer = require('nodemailer');
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
-// const port = process.env.PORT || 3000;
-// app.set('view engine', 'ejs');
-// app.use(express.static('public'));
-
-// // Check if MONGO_URI is defined
-// if (!process.env.MONGO_URI) {
-//   console.error('MONGO_URI is not defined in the .env file');
-//   process.exit(1);
-// }
-
-// // MongoDB connection
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log('MongoDB connected'))
-//   .catch(err => console.error('MongoDB connection error:', err));
-
-// // Mongoose Schema without the poster field
-// const studentSchema = new mongoose.Schema({
-//   name: { type: String, required: true },
-//   collegeName: { type: String, required: true },
-//   email: { type: String, required: true },
-//   phone: { type: String, required: true },
-//   pursuing: { type: String, required: true },
-//   studentType: { type: String, required: true },
-//   upiTransactionId: { type: String, required: true, unique: true }
-// });
-
-// const Student = mongoose.model('Student', studentSchema);
-
-// const facultySchema = new mongoose.Schema({
-//   facultyType: { type: String, required: true },
-//   banquet: { type: String },
-//   yourname: { type: String, required: true },
-//   speciality: { type: String, required: true },
-//   emailaddress: { type: String, required: true },
-//   phone: { type: String, required: true },
-//   ksdc: { type: String, required: true, unique: true },
-//   upiTransactionId: { type: String, required: true, unique: true }
-// });
-
-// const Faculty = mongoose.model('Faculty', facultySchema);
-
-// // Route to handle form submission for student registration
-// app.post('/studentregister', async (req, res) => {
-//   const { name, collegeName, email, phone, pursuing, studentType, upiTransactionId } = req.body;
-
-//   try {
-//     const newStudent = new Student({
-//       name,
-//       collegeName,
-//       email,
-//       phone,
-//       pursuing,
-//       studentType,
-//       upiTransactionId
-//     });
-
-//     await newStudent.save();
-//     res.status(201).json({ message: 'Student registration successful' });
-//   } catch (error) {
-//     console.error('Error during student registration:', error);
-//     res.status(500).json({ message: 'Server error', error });
-//   }
-// });
-
-// // Route to handle form submission for faculty registration
-// app.post('/facultyregister', async (req, res) => {
-//   const { facultyType, banquet, yourname, speciality, emailaddress, phone, ksdc, upiTransactionId } = req.body;
-
-//   try {
-//     const newFaculty = new Faculty({
-//       facultyType,
-//       banquet,
-//       yourname,
-//       speciality,
-//       emailaddress,
-//       phone,
-//       ksdc,
-//       upiTransactionId
-//     });
-
-//     await newFaculty.save();
-//     res.status(201).json({ message: 'Faculty registration successful' });
-//   } catch (error) {
-//     console.error('Error during faculty registration:', error);
-//     if (error.code === 11000) {
-//       res.status(400).json({ message: 'KSDC registration number or UPI transaction ID already exists' });
-//     } else {
-//       res.status(500).json({ message: 'Server error', error });
-//     }
-//   }
-  
-// });
-
-// app.get("/studentregister", (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'studentreg.html'));
-// });
-
-// app.get("/facultyregister", (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'facultyreg.html'));
-// });
-
-// // Serve the form HTML
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'index.html'));
-// });
-
-// // Start the server
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port}`);
-// });
-
-
 
 require('dotenv').config();
 const express = require('express');
@@ -188,19 +65,6 @@ const facultySchema = new mongoose.Schema({
 const Faculty = mongoose.model('Faculty', facultySchema);
 
 
-// Student with poster
-// const studentWithPosterSchema = new mongoose.Schema({
-//   name: String,
-//   collegeName: String,
-//   email: String,
-//   phone: String,
-//   pursuing: String,
-//   poster: String // Store the poster file path
-// });
-
-// const StudentWithPoster = mongoose.model('StudentWithPoster', studentWithPosterSchema);
-// End of student with poster
-
 
 // Function to get next sequence value
 async function getNextSequenceValue(sequenceName) {
@@ -212,17 +76,6 @@ async function getNextSequenceValue(sequenceName) {
   return sequenceDocument.sequenceValue;
 }
 
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//       cb(null, 'uploads/posters'); // Ensure this directory exists
-//   },
-//   filename: function (req, file, cb) {
-//       cb(null, Date.now() + path.extname(file.originalname)); // Append extension
-//   }
-// });
-
-// const upload = multer({ storage: storage });
 
 
 // Route to handle form submission for student registration
