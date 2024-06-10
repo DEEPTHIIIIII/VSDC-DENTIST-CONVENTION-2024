@@ -161,8 +161,8 @@ const Counter = mongoose.model('Counter', counterSchema);
 const studentSchema = new mongoose.Schema({
   name: { type: String, required: true },
   collegeName: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
+  email: { type: String, required: true, unique: true},
+  phone: { type: String, required: true, unique: true},
   pursuing: { type: String, required: true },
   studentType: { type: String, required: true },
   poster: { type: String},
@@ -175,11 +175,11 @@ const Student = mongoose.model('Student', studentSchema);
 // Define Faculty schema and model
 const facultySchema = new mongoose.Schema({
   facultyType: { type: String, required: true },
-  banquet: { type: String },
+  banquet: { type: String, required: true },
   yourname: { type: String, required: true },
   speciality: { type: String, required: true },
-  emailaddress: { type: String, required: true },
-  phone: { type: String, required: true },
+  emailaddress: { type: String, required: true, unique: true },
+  phone: { type: String, required: true, unique: true },
   ksdc: { type: String, required: true, unique: true },
   upiTransactionId: { type: String, required: true, unique: true },
   uid: { type: String, required: true, unique: true }
@@ -263,6 +263,9 @@ app.post('/studentregister', async (req, res) => {
         
         Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
         You can reach out to Dr. Jahnavi M.S at 9448112800, Dr. Praveen Jain at 8904726546, or Dr. Dishanth C at 9113999625. 
+
+        Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/GfLAGHVcBG62F5qMjPXFDT
+      
         We are here to ensure that your experience at the conference is seamless and rewarding.
         
         We eagerly anticipate your presence and active participation at the Karnataka State OMR UG Conference-2024.
@@ -288,7 +291,7 @@ app.post('/studentregister', async (req, res) => {
     // Registration successful, send response with success alert
     res.send(`
       <script>
-        alert("User registration successful! Please check your email for confirmation.");
+        alert("Student registration successful! Please check your email for confirmation, and join the WhatsApp group using the link sent in the email.");
         window.location.href = '/';
       </script>
     `);
@@ -297,11 +300,29 @@ app.post('/studentregister', async (req, res) => {
     if (error.code === 11000 && error.keyPattern.upiTransactionId) {
       res.send(`
         <script>
-          alert("Transaction ID already used for registration. Please check your email for confirmation. For further details, Contact 91139 99625.");
+          alert("Transaction ID already used for registration. For further details, Contact 91139 99625.");
           window.location.href = '/';
         </script>
       `);
-    } else {
+      } 
+      else if (error.code === 11000 && error.keyPattern.emailaddress){
+      res.send(`
+        <script>
+          alert("This Email Address has already been used for registration. Please check your email for confirmation. For further details, Contact 91139 99625.");
+          window.location.href = '/';
+        </script>
+      `);
+
+    }
+    else if (error.code === 11000 && error.keyPattern.phone){
+      res.send(`
+        <script>
+          alert("This Phone Number has already been used for registration. For further details, Contact 91139 99625.");
+          window.location.href = '/';
+        </script>
+      `);
+
+    }else {
       res.status(500).send('Error processing registration');
     }
   }
@@ -318,7 +339,7 @@ app.post('/facultyregister',  async (req, res) => {
 
   try {
     const nextUid = await getNextSequenceValue('facultyUid');
-    const formattedUid = nextUid.toString().padStart(4, '0'); // Format UID as 4-digit number
+    const formattedUid = (1000 + nextUid).toString(); //Starts with 1
 
     const newFaculty = new Faculty({
       facultyType,
@@ -348,7 +369,7 @@ app.post('/facultyregister',  async (req, res) => {
       
       Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
       You can reach out to Dr. Jahnavi M.S at 9448112800.
-      Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/GfLAGHVcBG62F5qMjPXFDT
+      Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/I79kRT6LLdu7WjeKjON8TU
       We are here to ensure that your experience at the convention is seamless and rewarding.
       
       We eagerly anticipate your presence and active participation at the Dentist Convention 2024.
@@ -374,7 +395,7 @@ app.post('/facultyregister',  async (req, res) => {
     // Registration successful, send response with success alert
     res.send(`
       <script>
-        alert("Faculty registration successful! Please check your email for confirmation.");
+        alert("Faculty registration successful! Please check your email for confirmation, and join the WhatsApp group using the link sent in the email.");
         window.location.href = '/';
       </script>
     `);
@@ -383,12 +404,40 @@ app.post('/facultyregister',  async (req, res) => {
     if (error.code === 11000 && error.keyPattern.upiTransactionId) {
       res.send(`
         <script>
-          alert("Transaction ID already used for registration. Please check your email for confirmation. For further details, Contact 91139 99625.");
+          alert("Transaction ID already used for registration. For further details, Contact 91139 99625.");
           window.location.href = '/';
         </script>
       `);
-    } else {
-      res.status(500).send('Error processing registration');
+      } 
+      else if (error.code === 11000 && error.keyPattern.emailaddress){
+      res.send(`
+        <script>
+          alert("This Email Address has already been used for registration. Please check your email for confirmation. For further details, Contact 91139 99625.");
+          window.location.href = '/';
+        </script>
+      `);
+
+    }
+    else if (error.code === 11000 && error.keyPattern.phone){
+      res.send(`
+        <script>
+          alert("This Phone Number has already been used for registration. For further details, Contact 91139 99625.");
+          window.location.href = '/';
+        </script>
+      `);
+
+    }
+    else if (error.code === 11000 && error.keyPattern.ksdc){
+      res.send(`
+        <script>
+          alert("A registration has already been made with this KSDC Number. \nFor further details, Contact 91139 99625.");
+          window.location.href = '/';
+        </script>
+      `);
+
+    }
+    else {
+      res.status(500).send('Error processing registration. For further details, Contact 91139 99625.');
     }
   }
 });
