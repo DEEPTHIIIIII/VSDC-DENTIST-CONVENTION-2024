@@ -1,12 +1,4 @@
-// function toggleBanquetField() {
-//     var facultyType = document.getElementById("facultyType").value;
-//     var banquetField = document.getElementById("banquetField");
-//     if (facultyType === "non-ida") {
-//       banquetField.style.display = "block";
-//     } else {
-//       banquetField.style.display = "none";
-//     }
-//   }
+
   function togglePosterField() {
               var studentType = document.getElementById("studentType").value;
               var posterField = document.getElementById("posterField");
@@ -25,7 +17,7 @@ message => alert("Thanks for filling out our form!")
 
 document.addEventListener('DOMContentLoaded', function() {
     const studentform = document.getElementById('registerform') ;
-    //const facultyform = document.getElementById('registerform')
+    
     const phoneInput = document.getElementById('phone');
 
     studentform.addEventListener('submit', function(event) {
@@ -33,11 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); // Prevent form submission if validation fails
         }
     });
-    // facultyform.addEventListener('submit', function(event) {
-    //     if (!validatePhone()) {
-    //         event.preventDefault(); // Prevent form submission if validation fails
-    //     }
-    // });
+    
 
     phoneInput.addEventListener('input', function() {
         phoneInput.setCustomValidity(''); // Clear previous custom validity message
@@ -226,9 +214,9 @@ document.getElementById('paymentComplete').addEventListener('change', function()
     var upiSection = document.getElementById('upiSection');
     if (this.checked) {
         upiSection.classList.add('visible');
-      //upiSection.style.display = 'block';
+      
     } else {
         upiSection.classList.remove('visible');
-      //upiSection.style.display = 'none';
+      
     }
   });
