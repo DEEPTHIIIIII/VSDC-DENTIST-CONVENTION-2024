@@ -106,10 +106,10 @@ app.post('/studentregister', async (req, res) => {
       to: email,
       subject: 'Registration Confirmation',
       text: `
-        We are pleased to confirm your registration for the Karnataka State OMR UG Conference-2024, themed "Emerging Trends in Therapeutics," 
-        which will be hosted by VS Dental College on April 5th and 6th, 2024.
+       We are pleased to confirm your registration for the IDA Dentist Convention-2024, 
+        which will be hosted by VS Dental College on July 20th,2024 at Kuvempu Kalakshetra.
         
-        Your participation in this conference will contribute significantly to the exchange of knowledge and the advancement of the field. 
+        Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of the field. 
         We are confident that the sessions and discussions lined up will provide valuable insights and networking opportunities.
         
         Your unique ID for the conference is ${formattedUid}. Please keep this ID handy for any future reference or communication related to the event.
@@ -121,7 +121,7 @@ app.post('/studentregister', async (req, res) => {
       
         We are here to ensure that your experience at the conference is seamless and rewarding.
         
-        We eagerly anticipate your presence and active participation at the Karnataka State OMR UG Conference-2024.
+        We eagerly anticipate your presence and active participation at the Dentist Convention 2024..
       `
     };
 
@@ -212,8 +212,8 @@ app.post('/facultyregister',  async (req, res) => {
       from: process.env.USER,
       to: emailaddress,
       subject: 'Registration Confirmation',
-      text:`We are pleased to confirm your registration for the Dentist Convention 2024, themed "Advancements in Dental Science," 
-      which will be hosted by VS Dental College on April 5th and 6th, 2024.
+      text:`We are pleased to confirm your registration for the IDA Dentist Convention-2024, 
+        which will be hosted by VS Dental College on July 20th,2024 at Kuvempu Kalakshetra.
       
       Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of dental science. 
       We are confident that the sessions and discussions lined up will provide valuable insights and networking opportunities.
