@@ -112,6 +112,10 @@ nav img{
 .logo-box .logo {
     margin: 0 15px;
 }
+
+#location {
+    color: inherit;
+}
 .text-box{
     width: 90%;
     color: #fff;
