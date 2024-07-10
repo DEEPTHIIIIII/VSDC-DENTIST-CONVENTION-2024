@@ -106,7 +106,7 @@ app.post('/studentregister', async (req, res) => {
       to: email,
       subject: 'Registration Confirmation',
       text: `
-       We are pleased to confirm your registration for the IDA Dentist Convention-2024, 
+        We are pleased to confirm your registration for the IDA Dentist Convention-2024, 
         which will be hosted by VS Dental College on July 20th,2024 at Kuvempu Kalakshetra.
         
         Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of the field. 
@@ -117,11 +117,10 @@ app.post('/studentregister', async (req, res) => {
         Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
         You can reach out to Dr. Jahnavi M.S at 9448112800, Dr. Praveen Jain at 8904726546, or Dr. Dishanth C at 9113999625. 
 
-        Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/GfLAGHVcBG62F5qMjPXFDT
       
         We are here to ensure that your experience at the conference is seamless and rewarding.
         
-        We eagerly anticipate your presence and active participation at the Dentist Convention 2024..
+        We eagerly anticipate your presence and active participation at the Dentist Convention - 2024.
       `
     };
 
@@ -144,7 +143,7 @@ app.post('/studentregister', async (req, res) => {
     // Registration successful, send response with success alert
     res.send(`
       <script>
-        alert("Student registration successful! Please check your email for confirmation, and join the WhatsApp group using the link sent in the email.");
+        alert("Student registration successful! Please check your email for confirmation.");
         window.location.href = '/';
       </script>
     `);
@@ -213,7 +212,7 @@ app.post('/facultyregister',  async (req, res) => {
       to: emailaddress,
       subject: 'Registration Confirmation',
       text:`We are pleased to confirm your registration for the IDA Dentist Convention-2024, 
-        which will be hosted by VS Dental College on July 20th,2024 at Kuvempu Kalakshetra.
+      which will be hosted by VS Dental College on July 20th,2024 at Kuvempu Kalakshetra.
       
       Your participation in this convention will contribute significantly to the exchange of knowledge and the advancement of dental science. 
       We are confident that the sessions and discussions lined up will provide valuable insights and networking opportunities.
@@ -222,7 +221,6 @@ app.post('/facultyregister',  async (req, res) => {
       
       Should you require any further assistance or have any inquiries, please do not hesitate to contact us. 
       You can reach out to Dr. Jahnavi M.S at 9448112800.
-      Join our Whatsapp group for the latest updates : https://chat.whatsapp.com/I79kRT6LLdu7WjeKjON8TU
       We are here to ensure that your experience at the convention is seamless and rewarding.
       
       We eagerly anticipate your presence and active participation at the Dentist Convention 2024.
@@ -248,7 +246,7 @@ app.post('/facultyregister',  async (req, res) => {
     // Registration successful, send response with success alert
     res.send(`
       <script>
-        alert("Faculty registration successful! Please check your email for confirmation, and join the WhatsApp group using the link sent in the email.");
+        alert("Faculty registration successful! Please check your email for confirmation.");
         window.location.href = '/';
       </script>
     `);
